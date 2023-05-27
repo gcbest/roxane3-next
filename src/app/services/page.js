@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Layout from '../../components/Layout';
 
 export default () => (
-    <Layout contentHeader="About">
+  <Layout contentHeader="About">
     <h3>
       Practical Psychology Consultancy Ltd works to support all aspects of your work to ensure your
       desired outcome.
@@ -29,9 +29,8 @@ export default () => (
     <div>
       <Image
         className="about-me-pic"
+        fill
         src="/assets/images/roxane-linkedin.jpeg"
-        width={300}
-        height={300}
         alt="linkedIn"
       />
     </div>
