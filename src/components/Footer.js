@@ -1,5 +1,3 @@
-
-
 export default () => {
     const publications = [
         {
@@ -43,7 +41,7 @@ export default () => {
             <div className="posts">
             <h2>Published Works</h2>
             <ul>
-                {publications.map(pub => (<li><a href={pub.url} target="_blank" rel="noopener noreferrer">{`${pub.title}`}</a></li>))}
+                {publications.map(pub => (<li key={pub.title}><a href={pub.url} target="_blank" rel="noopener noreferrer">{`${pub.title}`}</a></li>))}
             </ul>
             </div>
             <div className="contact">

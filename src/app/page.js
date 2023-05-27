@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Accreds from '../components/Accreds';
 import Aside from '../components/Aside';
-// import Home from '../components/Home';
-// import Footer from '../components/Footer';
-// import Copyright from '../components/Copyright';
+import Home from '../components/Home';
+import Footer from '../components/Footer';
+import Copyright from '../components/Copyright';
 import animatedStyles from '../components/styles/animate.module.css';
 
 export default function Main() {
@@ -40,12 +40,12 @@ export default function Main() {
         </div>
       </div>
       <div className="wrapper">
-        {/* <Home /> */}
+        <Home />
         <Aside />
         <Accreds />
       </div>
-      {/* <Footer /> */}
-      {/* <Copyright /> */}
+      <Footer />
+      <Copyright />
     </div>
   );
 }
