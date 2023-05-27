@@ -1,95 +1,51 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from 'next/image';
+import Link from 'next/link';
+import Header from '../components/Header';
+// import Accreds from '../components/Accreds';
+import Aside from '../components/Aside';
+// import Home from '../components/Home';
+// import Footer from '../components/Footer';
+// import Copyright from '../components/Copyright';
+import animatedStyles from '../components/styles/animate.module.css';
 
-export default function Home() {
+export default function Main() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <div>
+      <Header />
+      <div className="hero-video-wrap">
+        <video autoPlay={true} muted={true} loop={true}>
+          <source src="/assets/videos/rotating-city.webm" type="video/mp4" />
+        </video>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <div className="hero-grid">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
+              className={`${animatedStyles.animated} ${animatedStyles.slideInUp} animated-pic`}
+              src="/assets/images/roxy_transparent_background.png"
+              width={300}
+              height={300}
+              alt="roxane"
             />
-          </a>
+            <div className="hero-text">
+              <h1 className="font_1">Practical Psychology Consultancy Ltd</h1>
+              <h3 className="font_2">
+                Providing focused solutions to improve and enhance workers’ well-being performance,
+                and productivity; as well as effective organisational functionality.
+              </h3>
+              <Link href="/contact">
+                <button className="btn">Contact Us</button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="wrapper">
+        {/* <Home /> */}
+        <Aside />
+        {/* <Accreds /> */}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      {/* <Footer /> */}
+      {/* <Copyright /> */}
+    </div>
+  );
 }

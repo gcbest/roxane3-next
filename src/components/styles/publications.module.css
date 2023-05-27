@@ -1,0 +1,79 @@
+.panel-group {
+  /* margin: 1rem auto; */
+  margin: 1rem;
+  max-width: 70%;
+}
+
+.panel-collapse {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  display: block;
+  line-height: 1.5rem;
+  max-height: 2000px;
+}
+.panel-close {
+  max-height: 0;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 1rem;
+  border: solid 2px rgb(225, 58, 68);
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active {
+  background-color: #f2f3f4;
+  border-radius: 1rem;
+  border: solid 2px rgb(225, 58, 68);
+}
+
+.collapsible:hover:not(.active) {
+  background-color: rgb(251, 229, 230);
+  border-radius: 1rem;
+  border: solid 2px rgb(225, 58, 68);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.collapsible:before {
+  content: "\02795"; /* Plus sign */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:before {
+  content: "\2796"; /* Minus Sign */
+}
+
+.view-article {
+  margin: 1rem 0 !important;
+  display: block;
+  font-size: 1.2rem;
+  color: rgb(225, 58, 68) !important;
+}
+
+@media (max-width: 500px) {
+  .panel-group {
+    max-width: 100%;
+  }
+}
