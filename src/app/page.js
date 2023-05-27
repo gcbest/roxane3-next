@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
-// import Accreds from '../components/Accreds';
+import Accreds from '../components/Accreds';
 import Aside from '../components/Aside';
 // import Home from '../components/Home';
 // import Footer from '../components/Footer';
@@ -42,7 +42,7 @@ export default function Main() {
       <div className="wrapper">
         {/* <Home /> */}
         <Aside />
-        {/* <Accreds /> */}
+        <Accreds />
       </div>
       {/* <Footer /> */}
       {/* <Copyright /> */}
