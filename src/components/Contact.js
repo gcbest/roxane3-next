@@ -1,7 +1,7 @@
 'use client';
-import pureStyles from './styles/pure.css';
 import { FaRegEnvelope } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import './styles/pure.css';
 
 export default () => (
   <div className="contact-area">
