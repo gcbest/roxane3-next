@@ -1,10 +1,9 @@
-.panel-group {
-  /* margin: 1rem auto; */
+.panelGroup {
   margin: 1rem;
   max-width: 70%;
 }
 
-.panel-collapse {
+.panelCollapse {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
   padding: 0 1rem;
@@ -13,7 +12,8 @@
   line-height: 1.5rem;
   max-height: 2000px;
 }
-.panel-close {
+
+.panelClose {
   max-height: 0;
 }
 
@@ -65,7 +65,7 @@
   content: "\2796"; /* Minus Sign */
 }
 
-.view-article {
+.viewArticle {
   margin: 1rem 0 !important;
   display: block;
   font-size: 1.2rem;

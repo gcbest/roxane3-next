@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+'use client';
+import { useState } from 'react';
 import publicationsStyles from "./styles/publications.module.css";
 
 export default ({title, description, url}) => {
+    console.log('publicationsStyles', publicationsStyles);
     const [open, setOpen] = useState(false);
 
     const handleToggle = () => {
@@ -10,7 +12,7 @@ export default ({title, description, url}) => {
     }
 
     const getClassNames = () => {
-        if(open) return publicationsStyles.active;
+        if (open) return publicationsStyles.active;
         return '';
     }
 

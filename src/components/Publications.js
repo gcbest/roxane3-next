@@ -1,4 +1,3 @@
-
 import PublicationCollapse from './PublicationCollapse';
 
 export default () => {
