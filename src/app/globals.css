@@ -405,6 +405,17 @@ img {
   /* height: 100%; */
 }
 
+/************** RESOURCES **************/
+section.resources h3{
+  margin-top: 32px;
+}
+
+section.resources a{
+  display: block;
+  margin: 18px 0px;
+  width: fit-content;
+}
+
 /************** CONTACT **************/
 
 .contact-area {
