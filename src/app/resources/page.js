@@ -1,5 +1,5 @@
 import Layout from '../../components/Layout';
-import DownloadLink from '../..//components/DownloadLink';
+import DownloadLink from '../../components/DownloadLink';
 
 export default () => {
     return (
