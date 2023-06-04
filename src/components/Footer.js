@@ -15,7 +15,7 @@ export default () => {
             url: '/assets/articles/six_coaching_outcomes.pdf'
         },
         {
-            title: 'Asses Work Effectiveness',
+            title: 'Assess Work Effectiveness',
             url: '/assets/articles/assess_work_effectiveness.pdf'
         }
     ];

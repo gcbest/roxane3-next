@@ -11,7 +11,7 @@ export default () => {
                 <DownloadLink href="/assets/articles/work_stressors_exploring_solutions.pdf" title="Work Stressors: Exploring Solutions" />
                 <h3>Coaching</h3>
                 <DownloadLink href="/assets/articles/six_coaching_outcomes.pdf" title="Six Coaching Outcomes" />
-                <DownloadLink href="/assets/articles/assess_work_effectiveness.pdf" title="Asses Work Effectiveness" />
+                <DownloadLink href="/assets/articles/assess_work_effectiveness.pdf" title="Assess Work Effectiveness" />
             </section>
         </Layout>
     )
