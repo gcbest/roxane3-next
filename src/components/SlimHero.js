@@ -1,9 +1,9 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default () => (
   <div className="hero-img-wrap">
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img className="hero-background-img" src="/assets/images/work-meeting.jpg" alt="work-meeting" />
+    <Image className="hero-background-img" alt="work-meeting" src="/assets/images/work-meeting.jpg" fill />
     <div className="hero-overlay"></div>
     <div className="hero-content-small">
       <div className="hero-text-small">
