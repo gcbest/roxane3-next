@@ -11,7 +11,7 @@ export default () => (
       <h3>HU2 8NH</h3>
       <h3>+44 (0)7887 743295</h3>
       <h3 className="email">
-        <span>roxane.gervais</span>
+        <span>info</span>
         <span>@practicalpsychologyconsultancy.com</span>
       </h3>
     </div>
