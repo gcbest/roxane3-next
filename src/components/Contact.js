@@ -6,9 +6,9 @@ import './styles/pure.css';
 export default () => (
   <div className="contact-area">
     <div>
-      <h3>Unit 34, Craven Park Training and Enterprise Centre</h3>
-      <h3>Kingston-Upon-Hull</h3>
-      <h3>HU9 5HE</h3>
+      <h3>Cherry Tree Court</h3>
+      <h3>36 Ferensway, Kingston-Upon-Hull</h3>
+      <h3>HU2 8NH</h3>
       <h3>+44 (0)7887 743295</h3>
       <h3 className="email">
         <span>roxane.gervais</span>
