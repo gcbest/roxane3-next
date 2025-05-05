@@ -39,7 +39,7 @@ export default () => {
                 <p>Kingston-Upon-Hull</p>
                 <p>HU2 8NH</p>
                 <p>+44 (0)7887 743295</p>
-                <p className="email"><span>roxane.gervais</span><span>@practicalpsychologyconsultancy.com</span></p>
+                <p className="email"><span>info</span><span>@practicalpsychologyconsultancy.com</span></p>
 
 
             </div>
