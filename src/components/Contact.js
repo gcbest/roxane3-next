@@ -17,7 +17,7 @@ export default () => (
     </div>
     <form
       className="pure-form pure-form-stacked"
-      action="https://formspree.io/mgeabglg"
+      action="https://formspree.io/mwpqbpgy"
       method="POST"
     >
       <fieldset>
