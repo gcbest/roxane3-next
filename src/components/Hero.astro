@@ -1,0 +1,37 @@
+---
+import { site } from "../data/site.js";
+
+const {
+  eyebrow = "Workplace psychology consultancy",
+  title = site.name,
+  subtitle = site.tagline,
+  variant = "home",
+} = Astro.props;
+
+const isHome = variant === "home";
+---
+
+<section class:list={["hero", isHome ? "hero-home" : "hero-page"]}>
+  <img class="hero-media" src="/assets/images/work-meeting.jpg" alt="" width="2940" height="1961" />
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="hero-subtitle">{subtitle}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/contact/">Contact Us</a>
+        <a class="button button-secondary" href="/services/">Explore Services</a>
+      </div>
+    </div>
+    {isHome && (
+      <img
+        class="hero-portrait"
+        src="/assets/images/roxy_transparent_background.png"
+        alt="Dr. Roxane Gervais"
+        width="864"
+        height="1210"
+      />
+    )}
+  </div>
+</section>

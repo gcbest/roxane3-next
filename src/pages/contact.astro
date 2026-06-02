@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { site } from "../data/site.js";
+---
+
+<BaseLayout title={`Contact | ${site.name}`} description="Contact Practical Psychology Consultancy Ltd.">
+  <Hero
+    variant="page"
+    eyebrow="Contact"
+    title="Start a focused conversation"
+    subtitle="Tell us what is happening in your organisation and what you would like to improve."
+  />
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Get in touch"
+      title="Contact Practical Psychology Consultancy"
+      lead="Use the form, call directly, or contact us by email."
+    />
+
+    <div class="contact-grid">
+      <section class="contact-panel">
+        <h2>Office</h2>
+        <address>
+          {site.address.map((line) => <span>{line}</span>)}
+          <a href={site.phoneHref}>{site.phoneDisplay}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </address>
+      </section>
+
+      <form class="contact-form" action="https://formspree.io/mwpqbpgy" method="POST">
+        <label>
+          <span>Your Email</span>
+          <input type="email" name="_replyto" autocomplete="email" required />
+        </label>
+        <label>
+          <span>Your Message</span>
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+        <button class="button button-primary" type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="map-frame">
+      <iframe
+        title="Practical Psychology Consultancy office location"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d271282.3763832949!2d-0.4930899966785164!3d53.691438506886456!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd6ecb5fb58ceecf!2sThe%20Craven%20Park%20Training%20and%20Enterprise%20Centre!5e0!3m2!1sen!2sus!4v1666449379423!5m2!1sen!2sus"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>

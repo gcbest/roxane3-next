@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { site } from "../data/site.js";
+---
+
+<BaseLayout title={`About | ${site.name}`} description="About Practical Psychology Consultancy Ltd and Dr. Roxane Gervais.">
+  <Hero
+    variant="page"
+    eyebrow="About"
+    title="Supporting every aspect of your work"
+    subtitle="Practical Psychology Consultancy Ltd works to support all aspects of your work to ensure your desired outcome."
+  />
+
+  <section class="section">
+    <div class="about-layout">
+      <div class="prose">
+        <SectionHeader
+          eyebrow="The consultancy"
+          title="Evidence-based organisational support"
+          lead="We work with organisations to develop bespoke solutions for safety, health, well-being, mental health, and effective organisational culture."
+        />
+        <p>
+          We are a team of experienced and regulated psychologists. Using an evidence-based approach,
+          we will work with you to develop a bespoke solution to address those safety, health and
+          overall well-being issues, inclusive of mental health, which have arisen in your workplace.
+          We will ensure that the solution adds value to your organisational practices and enhances
+          your organisational culture.
+        </p>
+        <p>
+          Dr. Roxane Gervais is a highly goal-oriented professional with strong data analytic and
+          interpretation experience. She is highly experienced in research design, survey design,
+          psychological assessment, organisational change, organisational development, psychometrics,
+          and career development.
+        </p>
+        <p>
+          Roxane is extremely organised with the ability to manage multiple projects and meet
+          deadlines. She has years of experience working in diverse teams and in international
+          environments, with a strong work ethic combined with a commitment to excellence in all
+          projects undertaken.
+        </p>
+      </div>
+      <figure class="profile-figure">
+        <img
+          src="/assets/images/roxy_transparent_background.png"
+          alt="Dr. Roxane Gervais"
+          width="864"
+          height="1210"
+        />
+        <figcaption>Dr. Roxane Gervais</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <SectionHeader
+      eyebrow="Videos"
+      title="Workplace well-being conversations"
+      lead="Selected video resources from Dr. Roxane Gervais."
+    />
+    <div class="video-grid">
+      <iframe
+        src="https://www.youtube.com/embed/o9Y3M0M_axA"
+        title="Dr. Roxane Gervais video"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <iframe
+        src="https://www.youtube.com/embed/aYImNDUTeWU"
+        title="Employee wellness video"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>

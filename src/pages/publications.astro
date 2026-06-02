@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import PublicationList from "../components/PublicationList.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { publications, site } from "../data/site.js";
+---
+
+<BaseLayout title={`Publications | ${site.name}`} description="Published occupational safety, health, and workplace psychology articles by Dr. Roxane Gervais.">
+  <Hero
+    variant="page"
+    eyebrow="Publications"
+    title="Research and occupational health writing"
+    subtitle="Selected articles on organisational change, psychosocial risk, participation, recovery, presenteeism, and work culture."
+  />
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Articles"
+      title="Selected publications"
+      lead="Open an article summary, then follow the link to read the full report."
+    />
+    <PublicationList publications={publications} />
+  </section>
+</BaseLayout>
