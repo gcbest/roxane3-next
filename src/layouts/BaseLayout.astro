@@ -1,12 +1,34 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import {
+  absoluteUrl,
+  defaultSeoImage,
+  getBreadcrumbSchema,
+  getOrganizationSchema,
+  getPageMeta,
+  getPageSpecificSchemas,
+  getWebPageSchema,
+  getWebsiteSchema,
+} from "../data/seo.js";
 import "../styles/global.css";
 
+const inferredMeta = getPageMeta(Astro.url.pathname);
 const {
-  title = "Practical Psychology Consultancy",
-  description = "Evidence-based workplace psychology, organisational consultancy, research design, and well-being support.",
+  title = inferredMeta.title,
+  description = inferredMeta.description,
+  image = defaultSeoImage,
 } = Astro.props;
+
+const canonicalUrl = absoluteUrl(inferredMeta.path);
+const imageUrl = absoluteUrl(image);
+const schemaGraph = [
+  getOrganizationSchema(),
+  getWebsiteSchema(),
+  getWebPageSchema({ ...inferredMeta, title, description }),
+  getBreadcrumbSchema(inferredMeta),
+  ...getPageSpecificSchemas(inferredMeta),
+];
 ---
 
 <!doctype html>
@@ -15,14 +37,37 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="author" content="Practical Psychology Consultancy Ltd" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#d83a46" />
     <title>{title}</title>
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/assets/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="/assets/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:site_name" content="Practical Psychology Consultancy Ltd" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="2940" />
+    <meta property="og:image:height" content="1961" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": schemaGraph,
+    })}></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />

@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import PublicationList from "../components/PublicationList.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import { publications, site } from "../data/site.js";
+import { publications } from "../data/site.js";
 ---
 
-<BaseLayout title={`Publications | ${site.name}`} description="Published occupational safety, health, and workplace psychology articles by Dr. Roxane Gervais.">
+<BaseLayout>
   <Hero
     variant="page"
     eyebrow="Publications"

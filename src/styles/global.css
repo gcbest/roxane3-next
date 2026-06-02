@@ -58,6 +58,24 @@ main {
   overflow: hidden;
 }
 
+.skip-link {
+  background: var(--charcoal);
+  border-radius: 0 0 8px 8px;
+  color: white;
+  font-weight: 800;
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  position: fixed;
+  top: 0;
+  transform: translateY(-120%);
+  transition: transform 160ms ease;
+  z-index: 40;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .site-header {
   position: sticky;
   top: 0;

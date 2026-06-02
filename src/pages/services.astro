@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import ServiceGrid from "../components/ServiceGrid.astro";
-import { services, site } from "../data/site.js";
+import { services } from "../data/site.js";
 ---
 
-<BaseLayout title={`Services | ${site.name}`} description="Business support, research and survey design, stress, menopause, and leadership development services.">
+<BaseLayout>
   <Hero
     variant="page"
     eyebrow="Services"

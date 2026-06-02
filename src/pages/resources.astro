@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import ResourceList from "../components/ResourceList.astro";
 import SectionHeader from "../components/SectionHeader.astro";
-import { resources, site } from "../data/site.js";
+import { resources } from "../data/site.js";
 ---
 
-<BaseLayout title={`Resources | ${site.name}`} description="Download Practical Psychology Consultancy resources on leadership, mental health, and coaching.">
+<BaseLayout>
   <Hero
     variant="page"
     eyebrow="Resources"
