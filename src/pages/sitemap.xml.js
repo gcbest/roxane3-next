@@ -1,6 +1,8 @@
 import { allResources } from "../data/site.js";
 import { absoluteUrl, pageMetadata } from "../data/seo.js";
 
+const DEFAULT_LASTMOD = "2026-06-02";
+
 function escapeXml(value) {
   return value
     .replaceAll("&", "&amp;")
@@ -22,22 +24,21 @@ function urlEntry({ loc, lastmod, changefreq = "monthly", priority = "0.6" }) {
 }
 
 export function GET() {
-  const lastmod = new Date().toISOString();
   const entries = [
     ...pageMetadata.map((page) => ({
       loc: absoluteUrl(page.path),
-      lastmod,
+      lastmod: page.lastmod ?? DEFAULT_LASTMOD,
       priority: page.priority,
     })),
     ...allResources.map((resource) => ({
       loc: absoluteUrl(resource.url),
-      lastmod,
+      lastmod: resource.lastmod ?? DEFAULT_LASTMOD,
       changefreq: "yearly",
       priority: "0.4",
     })),
     {
       loc: absoluteUrl("/llms.txt"),
-      lastmod,
+      lastmod: DEFAULT_LASTMOD,
       changefreq: "monthly",
       priority: "0.3",
     },
