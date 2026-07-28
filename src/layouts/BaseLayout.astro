@@ -42,6 +42,15 @@ const schemaGraph = [
     <meta name="theme-color" content="#d83a46" />
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/work-meeting-1600.avif"
+      imagesrcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
+      imagesizes="100vw"
+      type="image/avif"
+      fetchpriority="high"
+    />
     <link rel="icon" href="/assets/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="/assets/images/favicon-16x16.png" sizes="16x16" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />

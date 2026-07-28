@@ -12,7 +12,21 @@ const isHome = variant === "home";
 ---
 
 <section class:list={["hero", isHome ? "hero-home" : "hero-page"]}>
-  <img class="hero-media" src="/assets/images/work-meeting.jpg" alt="" width="2940" height="1961" />
+  <picture>
+    <source
+      srcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
+      sizes="100vw"
+      type="image/avif"
+    />
+    <img
+      class="hero-media"
+      src="/assets/images/work-meeting.jpg"
+      alt=""
+      width="2940"
+      height="1961"
+      fetchpriority="high"
+    />
+  </picture>
   <div class="hero-shade"></div>
   <div class="hero-inner">
     <div class="hero-copy">
@@ -27,10 +41,12 @@ const isHome = variant === "home";
     {isHome && (
       <img
         class="hero-portrait"
-        src="/assets/images/roxy_transparent_background.png"
+        src="/assets/images/roxy-720.avif"
         alt="Dr. Roxane Gervais"
-        width="864"
-        height="1210"
+        width="720"
+        height="1008"
+        decoding="async"
+        fetchpriority="low"
       />
     )}
   </div>

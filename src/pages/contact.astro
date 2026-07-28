@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DeferredEmbed from "../components/DeferredEmbed.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import { site } from "../data/site.js";
@@ -44,11 +45,12 @@ import { site } from "../data/site.js";
     </div>
 
     <div class="map-frame">
-      <iframe
+      <DeferredEmbed
+        variant="map"
         title="Practical Psychology Consultancy office location"
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d271282.3763832949!2d-0.4930899966785164!3d53.691438506886456!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd6ecb5fb58ceecf!2sThe%20Craven%20Park%20Training%20and%20Enterprise%20Centre!5e0!3m2!1sen!2sus!4v1666449379423!5m2!1sen!2sus"
-        loading="lazy"
-      ></iframe>
+        buttonLabel="Load interactive map"
+      />
     </div>
   </section>
 </BaseLayout>

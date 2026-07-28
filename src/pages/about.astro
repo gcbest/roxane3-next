@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DeferredEmbed from "../components/DeferredEmbed.astro";
 import Hero from "../components/Hero.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 ---
@@ -42,10 +43,12 @@ import SectionHeader from "../components/SectionHeader.astro";
       </div>
       <figure class="profile-figure">
         <img
-          src="/assets/images/roxy_transparent_background.png"
+          src="/assets/images/roxy-720.avif"
           alt="Dr. Roxane Gervais"
-          width="864"
-          height="1210"
+          width="720"
+          height="1008"
+          loading="lazy"
+          decoding="async"
         />
         <figcaption>Dr. Roxane Gervais</figcaption>
       </figure>
@@ -59,22 +62,20 @@ import SectionHeader from "../components/SectionHeader.astro";
       lead="Selected video resources from Dr. Roxane Gervais."
     />
     <div class="video-grid">
-      <iframe
+      <DeferredEmbed
         src="https://www.youtube-nocookie.com/embed/o9Y3M0M_axA"
         title="Dr. Roxane Gervais video"
+        buttonLabel="Load video"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-      <iframe
+        allowFullscreen={true}
+      />
+      <DeferredEmbed
         src="https://www.youtube-nocookie.com/embed/aYImNDUTeWU"
         title="Employee wellness video"
+        buttonLabel="Load video"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
+        allowFullscreen={true}
+      />
     </div>
   </section>
 </BaseLayout>

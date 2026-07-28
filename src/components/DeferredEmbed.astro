@@ -1,0 +1,56 @@
+---
+const {
+  src,
+  title,
+  buttonLabel,
+  variant = "video",
+  allow = "",
+  allowFullscreen = false,
+} = Astro.props;
+---
+
+<div
+  class:list={["embed-facade", `embed-facade-${variant}`]}
+  data-deferred-embed
+  data-src={src}
+  data-title={title}
+  data-allow={allow}
+  data-allow-fullscreen={allowFullscreen ? "true" : undefined}
+>
+  <div class="embed-facade-content">
+    <p>{title}</p>
+    <button class="button button-secondary" type="button" data-load-embed>
+      <span aria-hidden="true">{variant === "video" ? "▶" : "⌖"}</span>
+      {buttonLabel}
+    </button>
+    <noscript>
+      <a href={src} rel="noreferrer">Open {title}</a>
+    </noscript>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-deferred-embed]").forEach((container) => {
+    const button = container.querySelector("[data-load-embed]");
+    if (!(button instanceof HTMLButtonElement) || !(container instanceof HTMLElement)) return;
+
+    button.addEventListener(
+      "click",
+      () => {
+        const iframe = document.createElement("iframe");
+        iframe.src = container.dataset.src ?? "";
+        iframe.title = container.dataset.title ?? "";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "strict-origin-when-cross-origin";
+        iframe.tabIndex = 0;
+
+        if (container.dataset.allow) iframe.allow = container.dataset.allow;
+        if (container.dataset.allowFullscreen === "true") iframe.allowFullscreen = true;
+
+        iframe.addEventListener("load", () => iframe.focus(), { once: true });
+        container.replaceChildren(iframe);
+      },
+      { once: true },
+    );
+  });
+</script>
