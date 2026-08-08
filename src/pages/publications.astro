@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import PublicationList from "../components/PublicationList.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { publications } from "../data/site.js";
+---
+
+<BaseLayout>
+  <Hero
+    variant="page"
+    eyebrow="Publications"
+    title="Research"
+    subtitle="Selected articles on organisational change, psychosocial risk, participation, recovery, presenteeism, and work culture."
+  />
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Articles"
+      title="Selected publications"
+      lead="Open an article summary, then follow the link to read the full report."
+    />
+    <PublicationList publications={publications} />
+  </section>
+</BaseLayout>

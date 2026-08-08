@@ -1,0 +1,15 @@
+---
+const { publications } = Astro.props;
+---
+
+<div class="publication-list">
+  {publications.map((publication, index) => (
+    <details class="publication-item" open={index === 0}>
+      <summary>
+        <span>{publication.title}</span>
+      </summary>
+      <p>{publication.description}</p>
+      <a href={publication.url} target="_blank" rel="noopener noreferrer">Read the report</a>
+    </details>
+  ))}
+</div>

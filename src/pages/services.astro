@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ServiceGrid from "../components/ServiceGrid.astro";
+import { services } from "../data/site.js";
+---
+
+<BaseLayout>
+  <Hero
+    variant="page"
+    eyebrow="Services"
+    title="Bespoke support for workplace well-being and performance"
+    subtitle="Consultancy, workshops, research, and development programmes built around evidence and your organisation's context."
+  />
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="What we do"
+      title="Services shaped to your organisation"
+      lead="Each engagement is designed around the structures, practices, people, and pressures already present in your workplace."
+    />
+    <ServiceGrid services={services} />
+  </section>
+
+  <section class="section cta-section">
+    <div>
+      <h2>Need a focused conversation first?</h2>
+      <p>Share the issue you are trying to solve and we will help identify the right next step.</p>
+    </div>
+    <a class="button button-primary" href="/contact/">Contact Us</a>
+  </section>
+</BaseLayout>

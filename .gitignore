@@ -8,9 +8,11 @@
 # testing
 /coverage
 
-# next.js
+# generated sites
 /.next/
 /out/
+/dist/
+/.astro/
 
 # production
 /build

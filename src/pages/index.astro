@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Accreditations from "../components/Accreditations.astro";
+import Hero from "../components/Hero.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import ServiceGrid from "../components/ServiceGrid.astro";
+import { homeCopy, resources, services } from "../data/site.js";
+---
+
+<BaseLayout>
+  <Hero />
+
+  <section class="section">
+    <div class="content-split">
+      <div>
+        <SectionHeader
+          eyebrow="Evidence-led support"
+          title="Focused solutions for healthier organisations"
+          lead="Support for organisations, teams, and individuals, shaped around the realities of your workplace."
+        />
+      </div>
+      <div class="prose">
+        {homeCopy.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <SectionHeader
+      eyebrow="Services"
+      title="Practical help for complex workplace needs"
+      lead="Programmes and consultancy shaped around evidence, worker well-being, and organisational effectiveness."
+    />
+    <ServiceGrid services={services} limit={3} />
+    <div class="section-action">
+      <a class="button button-primary" href="/services/">View All Services</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="highlight-band">
+      <div>
+        <p class="eyebrow">Resources</p>
+        <h2>Short guides for leadership, mental health, and coaching</h2>
+      </div>
+      <div class="mini-resource-list">
+        {resources.flatMap((group) => group.items).map((resource) => (
+          <a href={resource.url} download>{resource.title}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section accreditation-section">
+    <SectionHeader
+      eyebrow="Professional standing"
+      title="Experienced and regulated psychologists"
+      lead="The consultancy combines psychology, organisational development, research, and evidence-based practice."
+    />
+    <Accreditations />
+  </section>
+</BaseLayout>

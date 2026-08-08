@@ -1,0 +1,52 @@
+---
+import { allResources, navItems, site } from "../data/site.js";
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <section>
+      <h2>{site.name}</h2>
+      <p>
+        We are a team of experienced and regulated psychologists. Using an evidence-based approach,
+        we work with you to develop bespoke solutions for safety, health, overall well-being, and
+        effective organisational culture.
+      </p>
+    </section>
+
+    <section>
+      <h2>Pages</h2>
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Resources</h2>
+      <ul>
+        {allResources.map((resource) => (
+          <li><a href={resource.url} download>{resource.title}</a></li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <address>
+        {site.address.map((line) => <span>{line}</span>)}
+        <a href={site.phoneHref}>{site.phoneDisplay}</a>
+        <a href={`mailto:${site.email}`}>{site.emailUser}<span>@{site.emailDomain}</span></a>
+      </address>
+    </section>
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright © 2026 Practical Psychology Consultancy</p>
+    <div class="footer-socials">
+      {site.socials.map((social) => (
+        <a href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a>
+      ))}
+    </div>
+  </div>
+</footer>

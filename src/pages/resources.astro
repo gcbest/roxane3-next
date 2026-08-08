@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ResourceList from "../components/ResourceList.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import { resources } from "../data/site.js";
+---
+
+<BaseLayout>
+  <Hero
+    variant="page"
+    eyebrow="Resources"
+    title="Evidence-informed guides to download"
+    subtitle="Practical PDFs covering leadership, work stressors, coaching outcomes, and work effectiveness."
+  />
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="PDF library"
+      title="Resources by topic"
+      lead="Downloadable guides for immediate reference and team discussion."
+    />
+    <ResourceList resources={resources} />
+  </section>
+</BaseLayout>
