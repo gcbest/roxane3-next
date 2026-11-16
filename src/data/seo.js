@@ -1,6 +1,6 @@
 import { allResources, publications, services, site } from "./site.js";
 
-export const SITE_URL = "https://www.practicalpsychologyconsultancy.com";
+export const SITE_URL = "https://practicalpsychologyconsultancy.com";
 
 export const defaultSeoImage = "/assets/images/work-meeting.jpg";
 
