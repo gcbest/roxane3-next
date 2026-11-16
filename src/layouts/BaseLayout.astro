@@ -11,6 +11,8 @@ import {
   getWebPageSchema,
   getWebsiteSchema,
 } from "../data/seo.js";
+import "@fontsource-variable/fraunces/wght.css";
+import frauncesUrl from "@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url";
 import "../styles/global.css";
 
 const inferredMeta = getPageMeta(Astro.url.pathname);
@@ -19,6 +21,8 @@ const {
   description = inferredMeta.description,
   image = defaultSeoImage,
 } = Astro.props;
+
+const isHome = inferredMeta.path === "/";
 
 const canonicalUrl = absoluteUrl(inferredMeta.path);
 const imageUrl = absoluteUrl(image);
@@ -42,15 +46,27 @@ const schemaGraph = [
     <meta name="theme-color" content="#d83a46" />
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <link
-      rel="preload"
-      as="image"
-      href="/assets/images/work-meeting-1600.avif"
-      imagesrcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
-      imagesizes="100vw"
-      type="image/avif"
-      fetchpriority="high"
-    />
+    <link rel="preload" as="font" href={frauncesUrl} type="font/woff2" crossorigin />
+    {isHome ? (
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/images/roxy-720.avif"
+        type="image/avif"
+        fetchpriority="high"
+      />
+    ) : (
+      <link
+        rel="preload"
+        as="image"
+        href="/assets/images/work-meeting-1600.avif"
+        imagesrcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
+        imagesizes="(max-width: 960px) 100vw, 62vw"
+        type="image/avif"
+        fetchpriority="high"
+      />
+    )}
+    <script is:inline>document.documentElement.classList.add("js");</script>
     <link rel="icon" href="/assets/images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="/assets/images/favicon-16x16.png" sizes="16x16" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />

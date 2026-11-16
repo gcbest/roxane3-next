@@ -9,29 +9,41 @@ const {
 } = Astro.props;
 
 const isHome = variant === "home";
+
+// On the home page, pick out "Psychology" in the brand colour.
+const accentWord = "Psychology";
+const accentIndex = isHome ? title.indexOf(accentWord) : -1;
+const titleParts =
+  accentIndex === -1
+    ? null
+    : [title.slice(0, accentIndex), accentWord, title.slice(accentIndex + accentWord.length)];
 ---
 
 <section class:list={["hero", isHome ? "hero-home" : "hero-page"]}>
-  <picture>
-    <source
-      srcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
-      sizes="100vw"
-      type="image/avif"
-    />
-    <img
-      class="hero-media"
-      src="/assets/images/work-meeting.jpg"
-      alt=""
-      width="2940"
-      height="1961"
-      fetchpriority="high"
-    />
-  </picture>
-  <div class="hero-shade"></div>
+  {!isHome && (
+    <>
+      <picture>
+        <source
+          srcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w, /assets/images/work-meeting-2400.avif 2400w"
+          sizes="(max-width: 960px) 100vw, 62vw"
+          type="image/avif"
+        />
+        <img
+          class="hero-media"
+          src="/assets/images/work-meeting.jpg"
+          alt=""
+          width="2940"
+          height="1961"
+          fetchpriority="high"
+        />
+      </picture>
+      <div class="hero-shade"></div>
+    </>
+  )}
   <div class="hero-inner">
     <div class="hero-copy">
       <p class="eyebrow">{eyebrow}</p>
-      <h1>{title}</h1>
+      <h1>{titleParts ? <>{titleParts[0]}<span>{titleParts[1]}</span>{titleParts[2]}</> : title}</h1>
       <p class="hero-subtitle">{subtitle}</p>
       <div class="hero-actions">
         <a class="button button-primary" href="/contact/">Contact Us</a>
@@ -39,15 +51,19 @@ const isHome = variant === "home";
       </div>
     </div>
     {isHome && (
-      <img
-        class="hero-portrait"
-        src="/assets/images/roxy-720.avif"
-        alt="Dr. Roxane Gervais"
-        width="720"
-        height="1008"
-        decoding="async"
-        fetchpriority="low"
-      />
+      <figure class="hero-portrait">
+        <div class="portrait-arch">
+          <img
+            src="/assets/images/roxy-720.avif"
+            alt="Dr. Roxane Gervais"
+            width="720"
+            height="1008"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <figcaption>Dr. Roxane Gervais</figcaption>
+      </figure>
     )}
   </div>
 </section>

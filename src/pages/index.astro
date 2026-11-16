@@ -18,8 +18,25 @@ import { homeCopy, resources, services } from "../data/site.js";
           title="Focused solutions for healthier organisations"
           lead="Support for organisations, teams, and individuals, shaped around the realities of your workplace."
         />
+        <figure class="split-figure">
+          <picture>
+            <source
+              srcset="/assets/images/work-meeting-960.avif 960w, /assets/images/work-meeting-1600.avif 1600w"
+              sizes="(max-width: 960px) 92vw, 520px"
+              type="image/avif"
+            />
+            <img
+              src="/assets/images/work-meeting.jpg"
+              alt=""
+              width="2940"
+              height="1961"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
+        </figure>
       </div>
-      <div class="prose">
+      <div class="prose prose-lead">
         {homeCopy.map((paragraph) => <p>{paragraph}</p>)}
       </div>
     </div>
@@ -45,7 +62,10 @@ import { homeCopy, resources, services } from "../data/site.js";
       </div>
       <div class="mini-resource-list">
         {resources.flatMap((group) => group.items).map((resource) => (
-          <a href={resource.url} download>{resource.title}</a>
+          <a href={resource.url} download>
+            <span>{resource.title}</span>
+            <span class="file-tag">PDF</span>
+          </a>
         ))}
       </div>
     </div>
